@@ -1,1 +1,12 @@
 # PI-Data-Structure-Algorithm
+Software developers know that efficient underlying architecture is essential to the technologies we use every day. Knowledge of data structures and the algorithms which they support helps developers choose the most suitable solution for a given context, making them better programmers who stand out to their company, clients, or prospective employers. In this course, leveraging the Python programming language, instructor Robin Andrews uses a combo of visual, theoretical, and hands-on programming approaches to explain concepts in a fun and accessible way. Robin explains some of the most important data structures such as stacks, queues, and priority queues, and how these are used by search algorithms such as depth-first search, breadth-first search, and the A-star (A*) algorithm. He shows how to trace the execution of algorithms. Along the way, he provides challenges that allow you to test your new skills.
+
+Python data structures and algorithms in action
+Selecting transcript lines in this section will navigate to timestamp in the video
+- [Instructor] Imagine if your sat-nav took a whole day to calculate your route, or a search engine took an hour to find a page of results for your search query. Efficient algorithms and the data structures which they depend on, are an intrinsic part of the modern world. Without them, most of the technology we take for granted would simply not be possible. Data structures and algorithms provide an excellent mental framework for thinking about software problems, along with a powerful set of tools, which can be applied in many seemingly diverse areas. Knowledge of data structures and algorithms is required to work at many major tech companies, such as Google, Microsoft, Amazon, and Facebook et cetera, and for good reason. These companies understand how this knowledge can provide solutions to problems that can be several orders of magnitude, more efficient and therefore more cost effective than naive solutions. Hi there, I'm Robin Andrews. I'm a computer science teacher from the UK and I run an education business called Compucademy. I invite you to join me on my course on LinkedIn learning, where we will learn about some of the most important data structures and algorithms, in a fun and accessible way using the Python programming language.
+
+![Capture4](https://user-images.githubusercontent.com/64193583/131349784-41ee4de9-f6d3-4fac-a6d8-c88a36aa5f62.PNG)
+
+
+
+
