@@ -1,0 +1,289 @@
+"""
+Python Data Structures - A Game-Based Approach
+Queue class
+Robin Andrews - https://compucademy.net/
+"""
+
+from collections import deque
+
+
+class Queue:
+    pass
+
+"""
+Python Data Structures - A Game-Based Approach
+Reading a maze from a text file
+Robin Andrews - https://compucademy.net/
+"""
+
+
+def read_maze(file_name):
+    """
+    Reads a maze stored in a text file and returns a 2d list containing the maze representation.
+    """
+    try:
+        with open(file_name) as fh:
+            maze = [[char for char in line.strip("\n")] for line in fh]
+            num_cols_top_row = len(maze[0])
+            for row in maze:
+                if len(row) != num_cols_top_row:
+                    print("The maze is not rectangular.")
+                    raise SystemExit
+            return maze
+    except OSError:
+        print("There is a problem with the file you have selected.")
+        raise SystemExit
+
+"""
+Python Data Structures - A Game-Based Approach
+Stack challenge
+Robin Andrews - https://compucademy.net/
+"""
+
+import stack
+
+string = "gninraeL nIdekniL htiw tol a nraeL"
+reversed_string = ""
+s = stack.Stack()
+
+# Your solution here.
+for char in string:
+    s.push(char)
+
+while not s.is_empty():
+    reversed_string += s.pop()
+
+print(reversed_string)
+
+"""
+Python Data Structures - A Game-Based Approach
+Stack class
+Robin Andrews - https://compucademy.net/
+"""
+
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        # return len(self.items) == 0
+        return not self.items
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def peek(self):
+        return self.items[-1]
+
+    def size(self):
+        return len(self.items)
+
+    def __str__(self):
+        return str(self.items)
+
+
+if __name__ == "__main__":
+    s = Stack()
+    print(s)
+    print(s.is_empty())
+    s.push(3)
+    print(s)
+    s.push(7)
+    s.push(5)
+    print(s)
+    print(s.pop())
+    print(s)
+    print(s.peek())
+    print(s.size())
+
+"""
+Python Data Structures - A Game-Based Approach
+A Star Algorithm maze solver.
+Robin Andrews - https://compucademy.net/
+Uses a priority queue containing f-values and (i, j) tuples along with dictionaries for
+predecessors and g-values.
+"""
+
+from helpers import get_path, offsets, is_legal_pos, read_maze
+from priority_queue import PriorityQueue
+
+
+def heuristic(a, b):
+    """
+    Calculates the Manhattan distance between two pairs of grid coordinates.
+    """
+    x1, y1 = a
+    x2, y2 = b
+    return abs(x1 - x2) + abs(y1 - y2)
+
+
+def a_star(maze, start, goal):
+    pass
+
+
+if __name__ == "__main__":
+    # Test 1
+    maze = [[0] * 3 for row in range(3)]
+    start_pos = (0, 0)
+    goal_pos = (2, 2)
+    result = a_star(maze, start_pos, goal_pos)
+    assert result == [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)]
+
+    # Test 2
+    maze = read_maze("mazes/mini_maze_bfs.txt")
+    # for row in maze:
+    #     print(row)
+    start_pos = (0, 0)
+    goal_pos = (2, 2)
+    result = a_star(maze, start_pos, goal_pos)
+    assert result == [(0, 0), (1, 0), (1, 1), (1, 2), (2, 2)]
+
+    # Test 3
+    maze = read_maze("mazes/mini_maze_bfs.txt")
+    start_pos = (0, 0)
+    goal_pos = (3, 3)
+    result = a_star(maze, start_pos, goal_pos)
+    assert result is None
+
+"""
+Python Data Structures - A Game-Based Approach
+BFS maze solver.
+Robin Andrews - https://compucademy.net/
+The queue contains positions as (row, column) tuples. Predecessors are kept in a dictionary.
+"""
+
+from helpers import get_path, offsets, is_legal_pos, read_maze
+from queue_ll import Queue
+
+
+def bfs(maze, start, goal):
+    pass
+
+
+if __name__ == "__main__":
+    # Test 1
+    maze = [[0] * 3 for row in range(3)]
+    start_pos = (0, 0)
+    goal_pos = (2, 2)
+    result = bfs(maze, start_pos, goal_pos)
+    assert result == [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)]
+
+    # Test 2
+    maze = read_maze("mazes/mini_maze_bfs.txt")
+    # for row in maze:
+    #     print(row)
+    start_pos = (0, 0)
+    goal_pos = (2, 2)
+    result = bfs(maze, start_pos, goal_pos)
+    assert result == [(0, 0), (1, 0), (1, 1), (1, 2), (2, 2)]
+
+    # Test 3
+    maze = read_maze("mazes/mini_maze_bfs.txt")
+    start_pos = (0, 0)
+    goal_pos = (3, 3)
+    result = bfs(maze, start_pos, goal_pos)
+    assert result is None
+
+"""
+Python Data Structures - A Game-Based Approach
+DFS maze solver.
+Robin Andrews - https://compucademy.net/
+The stack contains positions as (row, column) tuples. Predecessors are kept in a dictionary.
+"""
+
+from helpers import get_path, offsets, is_legal_pos, read_maze
+from stack import Stack
+
+
+def dfs(maze, start, goal):
+    pass
+
+
+if __name__ == "__main__":
+    # Test 1
+    maze = [[0] * 3 for row in range(3)]
+    start_pos = (0, 0)
+    goal_pos = (2, 2)
+    result = dfs(maze, start_pos, goal_pos)
+    assert result == [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2)]
+
+    # Test 2
+    maze = read_maze("mazes/mini_maze_dfs.txt")
+    for row in maze:
+        print(row)
+    start_pos = (0, 0)
+    goal_pos = (2, 2)
+    result = dfs(maze, start_pos, goal_pos)
+    assert result == [(0, 0), (0, 1), (1, 1), (2, 1), (2, 2)]
+
+    # Test 3
+    maze = read_maze("mazes/mini_maze_dfs.txt")
+    start_pos = (0, 0)
+    goal_pos = (3, 3)
+    result = dfs(maze, start_pos, goal_pos)
+    assert result is None
+
+"""
+Python Data Structures and Algorithms - A Game-Based Approach
+Helper functions and values for use with other files in this project.
+Robin Andrews - https://compucademy.net/
+"""
+
+offsets = {
+    "right": (0, 1),
+    "left": (0, -1),
+    "up": (-1, 0),
+    "down": (1, 0)
+}
+
+
+def read_maze(file_name):
+    """
+    Reads a maze stored in a text file and returns a 2d list containing the maze representation.
+    """
+    try:
+        with open(file_name, "r", newline=None) as fh:
+            maze = [[char for char in line.strip("\r\n")] for line in fh]
+            num_cols_top_row = len(maze[0])
+            for row in maze:
+                if len(row) != num_cols_top_row:
+                    print("The maze is not rectangular.")
+                    raise SystemExit
+            return maze
+    except IOError:
+        print("There is a problem with the file you have selected.")
+        raise SystemExit
+
+
+def is_legal_pos(maze, pos):
+    i, j = pos
+    num_rows = len(maze)
+    num_cols = len(maze[0])
+    return 0 <= i < num_rows and 0 <= j < num_cols and maze[i][j] != "*"
+
+
+def get_path(predecessors, start, goal):
+    current = goal
+    path = []
+    while current != start:
+        path.append(current)
+        current = predecessors[current]
+    path.append(start)
+    path.reverse()
+    return path
+
+"""
+Python Data Structures - A Game-Based Approach
+Priority Queue Class based on heapq.
+Robin Andrews - https://compucademy.net/
+"""
+
+import heapq
+
+
+class PriorityQueue:
+    pass
